@@ -21,3 +21,28 @@ Diving into stack and head memory corruption
 # Why JMP ESP?
 
 **ESP points directly to the start of your payload (after execution of the ret in the function you're attacking) because you put the payload right after the 4 bytes that overwrite the return address on the stack. ret pops 4 (or 8) bytes into EIP, leaving ESP pointing to the payload that directly follows.**
+
+## Overall Steps:
+- Fuzz (Crash a Program)
+- Control EIP
+    - Pattern_create / Pattern_offset
+    - In mona.py or in msf (.rb)
+- Locate Space for your Shellcode
+    - Standard Shellcode requires 350-400 Bytes
+    - Stagers requires
+- Determine Bad Characters
+    - Need to do multiple times (breaks on bad characters)
+    - Stop when see FE, FF (or end non-bad chars)
+- Redirect Program Execution
+    - Locate modules without protections
+    - !mona modules
+    - Find a return address (JMP ESP)
+    - Does not have to be a single instruction
+- Generate appropriate shellcode
+    - Must match OS version (32/64)
+    - Different prompts based on shellcode type
+    - EXITFUNC = Thread
+    - -e (specify encoder)
+- Get a Shell
+    - Different prompts
+    - Sometimes blank (no leading symbol)
