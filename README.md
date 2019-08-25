@@ -17,3 +17,7 @@ Diving into stack and head memory corruption
 A. **Make sure you look for at least 4 falses (first 4, hopefully 5)**
 4. **Generate payload and update your exploit code**
 5. **Exploit!**
+
+# Why JMP ESP?
+
+*ESP points directly to the start of your payload (after execution of the ret in the function you're attacking) because you put the payload right after the 4 bytes that overwrite the return address on the stack. ret pops 4 (or 8) bytes into EIP, leaving ESP pointing to the payload that directly follows.
