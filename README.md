@@ -14,10 +14,10 @@ Diving into stack and head memory corruption
 1. **Ensure you have enough room to hide a payload that is your reverse shell ( 350 bytes would be perfect!)**
 2. **Determine bad characters**
 3. **Work on redirection, need to find DLL. Use mona!**
-A. **Make sure you look for at least 4 falses (first 4, hopefully 5)**
-4. **Generate payload and update your exploit code**
-5. **Exploit!**
+4. **Make sure you look for at least 4 falses (first 4, hopefully 5)**
+5. **Generate payload and update your exploit code**
+6. **Exploit!**
 
 # Why JMP ESP?
 
-*ESP points directly to the start of your payload (after execution of the ret in the function you're attacking) because you put the payload right after the 4 bytes that overwrite the return address on the stack. ret pops 4 (or 8) bytes into EIP, leaving ESP pointing to the payload that directly follows.
+**ESP points directly to the start of your payload (after execution of the ret in the function you're attacking) because you put the payload right after the 4 bytes that overwrite the return address on the stack. ret pops 4 (or 8) bytes into EIP, leaving ESP pointing to the payload that directly follows.**
