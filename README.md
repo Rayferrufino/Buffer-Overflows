@@ -23,8 +23,8 @@ Diving into stack and head memory corruption
 **ESP points directly to the start of your payload (after execution of the ret in the function you're attacking) because you put the payload right after the 4 bytes that overwrite the return address on the stack. ret pops 4 (or 8) bytes into EIP, leaving ESP pointing to the payload that directly follows.**
 
 ## Overall Steps:
-- Fuzz (Crash a Program)
-- Control EIP
+- ### Fuzz (Crash a Program)
+- ### Control EIP
     - Pattern_create / Pattern_offset
     - In mona.py or in msf (.rb)
 - Locate Space for your Shellcode
