@@ -8,3 +8,12 @@ Diving into stack and head memory corruption
 1. **Figure out which registers contain memory addresses that are overridden**
 2. **Figure out which registers are overridden themselves (this is only good ifit’s EIP)**
 4. **Locate the bytes at which EIP was overridden**
+
+# Performing a BO - Execute
+
+1. **Ensure you have enough room to hide a payload that is your reverse shell ( 350 bytes would be perfect!)**
+2. **Determine bad characters**
+3. **Work on redirection, need to find DLL. Use mona!**
+A. **Make sure you look for at least 4 falses (first 4, hopefully 5)**
+4. **Generate payload and update your exploit code**
+5. **Exploit!**
